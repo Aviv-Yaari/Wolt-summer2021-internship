@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>
+        user location: lat: <%- userLocation.lat %> , <%- userLocation.lon %>
+    </h2>
+    <div>
+        <h2>Popular restaurants:</h2>
+        <ol>
+        <% for( const restaurant of popular ) { %>
+            <li>
+            <span><%= restaurant.name %>,  </span>
+            <span><%= restaurant.popularity %></span>
+            </li>
+        <% } %>
+        </ol>
+    </div>
+    <div>
+        <h2>New restaurants:</h2>
+        <ol>
+        <% for( const restaurant of news ) { %>
+                <li>
+                    <span><%= restaurant.launch_date.getDate() %>/</span>
+                    <span><%= restaurant.launch_date.getMonth() + 1 %>/</span>
+                    <span><%= restaurant.launch_date.getFullYear() %></span>
+                    <span><%= restaurant.name %>,  </span>
+                </li>
+            <% } %>
+        </ol>
+        </div>
+        
+        <div>
+            <h2>Nearby restaurants:</h2>
+            <ol>
+            <% for( const restaurant of nearby ) { %>
+                <li>
+                <span><%= restaurant.name %>,  </span>
+                <span>Distance: <%= restaurant.distance %></span>
+                <span>Location: <%= restaurant.location %></span>
+                </li>
+            <% } %>
+        </ol>
+        </div>
+    </body>
+    </html>
